@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "auth";
+$route['default_controller'] = "jangkrik/auth";
 $route['404_override'] = '';
 
 

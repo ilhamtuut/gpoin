@@ -43,36 +43,21 @@
  
     <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
     <script type="text/javascript">
-
-    function mischandler(){
-    return false;
-    }
-
-    function mousehandler(e){
-    var myevent = (isNS) ? e : event;
-    var eventbutton = (isNS) ? myevent.which : myevent.button;
-    if((eventbutton==2)||(eventbutton==3)) return false;
-    }
-    document.oncontextmenu = mischandler;
-    document.onmousedown = mousehandler;
-    document.onmouseup = mousehandler;
-    var isCtrl = false;
-        document.onkeyup=function(e)
-        {
-        if(e.which == 17)
-        isCtrl=false;
-        }
-
-        document.onkeydown=function(e)
-        {
-        if(e.which == 17)
-        isCtrl=true;
-        if((e.which == 85) || (e.which == 67) && isCtrl == true)
-        {
-        // alert(‘Keyboard shortcuts are cool!’);
+    //Script Redirect CTRL + U
+    function redirectCU(e) {
+      if (e.ctrlKey && e.which == 85) {
         return false;
-        }
-        }
+      }
+    }
+    document.onkeydown = redirectCU;
+
+    //Script Redirect Klik Kanan
+    function redirectKK(e) {
+      if (e.which == 3) {
+        return false;
+      }
+    }
+    document.oncontextmenu = redirectKK;
 
     </script>
   </body>
